@@ -6,21 +6,12 @@ var yellowCount = 0;
 
 $(document).ready(function() {
   //Add event handler, adding a corresponding colored block to the button clicked
-  $('.button').on('click', function() {
-    var blockColor = $(this).data("color");
-    addBlock(blockColor);
-  });
-  // $('#greenButton').on('click', function() {
-  //   addBlock("green");
-  // });
-  // $('#blueButton').on('click', function() {
-  //   addBlock("blue");
-  // });
-  // $('#yellowButton').on('click', function() {
-  //   addBlock("yellow");
-  // });
+  $('.button').on('click', addBlock);
+
   //Add an event handler that removes blocks when clicked
   $('#blockBox').on('click', '.block', removeBlock);
+
+  //Initialize the blockCounts on page load.
   refreshCount();
 });
 
@@ -43,10 +34,15 @@ function refreshCount () {
  *@param {string} color A string denoting the color of the block.
  *@return
 */
-function addBlock(color) {
+function addBlock() {
+  //Get color from the button clicked
+  var color = $(this).data("color");
+  //Append a colorBlock to the div value returned from createBlock
   $('#blockBox').append(createBlock(color));
+  //Assign color value to blockColor property of the block's data object.
   var colorBlock = $('#blockBox').children().last();
   colorBlock.data("blockColor", color);
+  //Increase the count for the corresponding color tally and update the page
   window[color+"Count"]++;
   refreshCount();
 }
