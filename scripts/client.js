@@ -5,19 +5,20 @@ var blueCount = 0;
 var yellowCount = 0;
 
 $(document).ready(function() {
-  //Add event handlers for each button, adding a corresponding colored block to the page
-  $('#redButton').on('click', function() {
-    addBlock("red");
+  //Add event handler, adding a corresponding colored block to the button clicked
+  $('.button').on('click', function() {
+    var blockColor = $(this).data("color");
+    addBlock(blockColor);
   });
-  $('#greenButton').on('click', function() {
-    addBlock("green");
-  });
-  $('#blueButton').on('click', function() {
-    addBlock("blue");
-  });
-  $('#yellowButton').on('click', function() {
-    addBlock("yellow");
-  });
+  // $('#greenButton').on('click', function() {
+  //   addBlock("green");
+  // });
+  // $('#blueButton').on('click', function() {
+  //   addBlock("blue");
+  // });
+  // $('#yellowButton').on('click', function() {
+  //   addBlock("yellow");
+  // });
   //Add an event handler that removes blocks when clicked
   $('#blockBox').on('click', '.block', removeBlock);
   refreshCount();
