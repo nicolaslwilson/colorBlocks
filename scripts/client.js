@@ -29,24 +29,15 @@ function refreshCount () {
 
 function addBlock(color) {
   $('#blockBox').append(createBlock(color));
+  var colorBlock = $('#blockBox').children().last();
+  colorBlock.data("blockColor", color);
   window[color+"Count"]++;
   refreshCount();
-
 }
 
 function removeBlock () {
-  if ($(this).hasClass("red")) {
-    redCount--;
-  }
-  if ($(this).hasClass("green")) {
-    greenCount--;
-  }
-  if ($(this).hasClass("blue")) {
-    blueCount--;
-  }
-  if ($(this).hasClass("yellow")) {
-    yellowCount--;
-  }
+  var blockColor = $(this).data("blockColor");
+  window[blockColor + "Count"]--;
   $(this).remove();
   refreshCount();
 }
