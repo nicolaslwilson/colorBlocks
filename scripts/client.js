@@ -1,8 +1,10 @@
 //These variables store the number of blocks for each color.
-var redCount = 0;
-var greenCount = 0;
-var blueCount = 0;
-var yellowCount = 0;
+var tally = {
+  red: 0,
+  green: 0,
+  blue: 0,
+  yellow: 0
+};
 
 $(document).ready(function() {
   //Add event handler, adding a corresponding colored block to the button clicked
@@ -21,10 +23,10 @@ $(document).ready(function() {
  *@return
 */
 function refreshCount () {
-  $('#redCount').text(redCount);
-  $('#greenCount').text(greenCount);
-  $('#blueCount').text(blueCount);
-  $('#yellowCount').text(yellowCount);
+  $('#redCount').text(tally.red);
+  $('#greenCount').text(tally.green);
+  $('#blueCount').text(tally.blue);
+  $('#yellowCount').text(tally.yellow);
 }
 
 /*
@@ -43,7 +45,7 @@ function addBlock() {
   var colorBlock = $('#blockBox').children().last();
   colorBlock.data("blockColor", color);
   //Increase the count for the corresponding color tally and update the page
-  window[color+"Count"]++;
+  tally[color]++;
   refreshCount();
 }
 
@@ -54,8 +56,8 @@ function addBlock() {
  *@return
 */
 function removeBlock () {
-  var blockColor = $(this).data("blockColor");
-  window[blockColor + "Count"]--;
+  var color = $(this).data("blockColor");
+  tally[color]--;
   $(this).remove();
   refreshCount();
 }
