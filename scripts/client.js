@@ -16,7 +16,7 @@ $(document).ready(function() {
   $('#yellowButton').on('click', function() {
     addBlock("yellow");
   });
-  $('body').on('click', '.block', removeBlock);
+  $('#blockBox').on('click', '.block', removeBlock);
   refreshCount();
 });
 
