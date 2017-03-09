@@ -1,5 +1,5 @@
 //These variables store the number of blocks for each color.
-var tally = {
+  var tally = {
   red: 0,
   green: 0,
   blue: 0,
@@ -42,8 +42,8 @@ function addBlock() {
   //Append a colorBlock to the div value returned from createBlock
   $('#blockBox').append(createBlock(color));
   //Assign color value to blockColor property of the block's data object.
-  var colorBlock = $('#blockBox').children().last();
-  colorBlock.data("blockColor", color);
+  // var colorBlock = $('#blockBox').children().last();
+  // colorBlock.data("blockColor", color);
   //Increase the count for the corresponding color tally and update the page
   tally[color]++;
   refreshCount();
@@ -56,7 +56,7 @@ function addBlock() {
  *@return
 */
 function removeBlock () {
-  var color = $(this).data("blockColor");
+  var color = $(this).data("color");
   tally[color]--;
   $(this).remove();
   refreshCount();
@@ -69,5 +69,5 @@ function removeBlock () {
  *@return {string}      A string containing a div element with classes of {color} and "block"
 */
 function createBlock(color) {
-  return "<div class=\"block " + color + "\"></div>";
+  return "<div class=\"block " + color + "\" data-color=" + color + "></div>";
 }
