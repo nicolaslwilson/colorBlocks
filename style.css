@@ -6,6 +6,10 @@
   text-align: center;
 }
 
+#stats div {
+  display: inline;
+}
+
 #redButton {
   background-color: red;
 }
