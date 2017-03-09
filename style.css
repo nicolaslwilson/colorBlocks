@@ -1,6 +1,7 @@
 /*Lays out the contents of controlsContainer */
 #controlsContainer {
   text-align: center;
+  font-family: sans-serif, serif;
 }
 #stats div {
   display: inline;
