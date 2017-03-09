@@ -18,7 +18,7 @@ $(document).ready(function() {
 });
 
 /*
- * Updates the text value of spans on the page tallying the blocks of each color.
+ * Updates the text value of spans on the page tallying the blocks of each color using the values in the {tally} object.
  *@function refreshCount
  *@return
 */
@@ -30,7 +30,7 @@ function refreshCount () {
 }
 
 /*
- *Adds a div to the page with a class of block, a color class, and a data.color value
+ *Adds a div to the page with a class of block, a color class, and a data.color value.
  *Updates the block counter values on the page via the refreshCount function.
  *@function addBlock
  *@param {string} color A string denoting the color of the block.
@@ -47,7 +47,7 @@ function addBlock () {
 }
 
 /*
- *Removes a colorBlock div from the page
+ *Removes a colorBlock div from the page.
  *Updates the block counter values on the page via the refreshCount function.
  *@function removeBlock
  *@return
@@ -66,8 +66,8 @@ function removeBlock () {
  *Creates a string representing a colorBlock div.
  *@function createBlock
  *@param {string} color A string denoting the color of the block.
- *@return {string}      A string containing a div element with classes of {color} and "block",
-                        and a data-color property also assigned the value {color}
+ *@return {string}      A string containing a div element with classes of {color}, "block",
+                        and a "data-color" property also assigned the value {color}.
 */
 function createBlock(color) {
   return "<div class=\"block " + color + "\" data-color=\"" + color + "\"></div>";
