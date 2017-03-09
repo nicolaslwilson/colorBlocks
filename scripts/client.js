@@ -36,14 +36,11 @@ function refreshCount () {
  *@param {string} color A string denoting the color of the block.
  *@return
 */
-function addBlock() {
+function addBlock () {
   //Get color from the button clicked
   var color = $(this).data("color");
   //Append a colorBlock to the div value returned from createBlock
   $('#blockBox').append(createBlock(color));
-  //Assign color value to blockColor property of the block's data object.
-  // var colorBlock = $('#blockBox').children().last();
-  // colorBlock.data("blockColor", color);
   //Increase the count for the corresponding color tally and update the page
   tally[color]++;
   refreshCount();
@@ -56,9 +53,12 @@ function addBlock() {
  *@return
 */
 function removeBlock () {
+  //Retrieve color property from the block data and decrement the corresponding tally
   var color = $(this).data("color");
   tally[color]--;
+  //Remove the clicked block
   $(this).remove();
+  //Update the tally on the page
   refreshCount();
 }
 
@@ -66,8 +66,9 @@ function removeBlock () {
  *Creates a string representing a colorBlock div.
  *@function createBlock
  *@param {string} color A string denoting the color of the block.
- *@return {string}      A string containing a div element with classes of {color} and "block"
+ *@return {string}      A string containing a div element with classes of {color} and "block",
+                        and a data-color property also assigned the value {color}
 */
 function createBlock(color) {
-  return "<div class=\"block " + color + "\" data-color=" + color + "></div>";
+  return "<div class=\"block " + color + "\" data-color=\"" + color + "\"></div>";
 }
