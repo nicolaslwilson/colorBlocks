@@ -1,3 +1,12 @@
+/*Lays out the contents of controlsContainer */
+#controlsContainer {
+  text-align: center;
+}
+#stats div {
+  display: inline;
+}
+
+/* Styles my button divs */
 .button {
   width: 150px;
   height: 80px;
@@ -11,13 +20,9 @@
   padding: 0.1em;
   font-size: 1.5em;
 }
-#controlsContainer {
-  text-align: center;
-}
-#stats div {
-  display: inline;
-}
 
+
+/* Make each button the color of the block that it creates */
 #redButton {
   background-color: red;
 }
@@ -31,6 +36,7 @@
   background-color: gold;
 }
 
+/*Style the colorBlocks that will be created on the page */
 .block {
   width: 100px;
   height: 100px;
